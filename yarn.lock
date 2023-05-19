@@ -5112,6 +5112,35 @@ __metadata:
   languageName: node
   linkType: hard
 
+"cs492-web3-project-frontend@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "cs492-web3-project-frontend@workspace:."
+  dependencies:
+    "@chakra-ui/react": ^2.2.1
+    "@emotion/react": ^11
+    "@emotion/styled": ^11
+    "@thirdweb-dev/react": ^3.6.8
+    "@thirdweb-dev/sdk": ^3.6.8
+    "@types/node": 18.0.0
+    "@types/react": 18.0.14
+    "@types/react-dom": 18.0.5
+    "@typescript-eslint/eslint-plugin": ^5.29.0
+    "@typescript-eslint/parser": ^5.29.0
+    eslint: ^8.18.0
+    eslint-config-next: 12.1.6
+    eslint-config-prettier: ^8.5.0
+    eslint-plugin-prettier: ^4.0.0
+    eslint-plugin-react: ^7.30.0
+    ethers: ^5.6.9
+    framer-motion: ^6
+    next: 12.1.6
+    prettier: ^2.7.1
+    react: 18.2.0
+    react-dom: 18.2.0
+    typescript: 4.7.4
+  languageName: unknown
+  linkType: soft
+
 "css-box-model@npm:1.2.1":
   version: 1.2.1
   resolution: "css-box-model@npm:1.2.1"
@@ -9660,35 +9689,6 @@ __metadata:
   checksum: b6937a38c80c7f84d9c11dd75e49d5c44f71d95e810a3250bd1f1797fc7117c57698204adf676b71497acc205d769d65c16ae8fa10afad832ae1322630aef10a
   languageName: node
   linkType: hard
-
-"thirdweb-nftdrop-nextjs@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "thirdweb-nftdrop-nextjs@workspace:."
-  dependencies:
-    "@chakra-ui/react": ^2.2.1
-    "@emotion/react": ^11
-    "@emotion/styled": ^11
-    "@thirdweb-dev/react": ^3.6.8
-    "@thirdweb-dev/sdk": ^3.6.8
-    "@types/node": 18.0.0
-    "@types/react": 18.0.14
-    "@types/react-dom": 18.0.5
-    "@typescript-eslint/eslint-plugin": ^5.29.0
-    "@typescript-eslint/parser": ^5.29.0
-    eslint: ^8.18.0
-    eslint-config-next: 12.1.6
-    eslint-config-prettier: ^8.5.0
-    eslint-plugin-prettier: ^4.0.0
-    eslint-plugin-react: ^7.30.0
-    ethers: ^5.6.9
-    framer-motion: ^6
-    next: 12.1.6
-    prettier: ^2.7.1
-    react: 18.2.0
-    react-dom: 18.2.0
-    typescript: 4.7.4
-  languageName: unknown
-  linkType: soft
 
 "through2@npm:~2.0.0":
   version: 2.0.5
