@@ -67,16 +67,24 @@ const Component: React.FC<Props> = ({ children }: Props) => {
     contract,
     'totalSupply'
   )
-  const { data: allToken, isLoading: allToken_loading_ } = useContractRead(
-    contract,
-    'tokensOfOwner',
-    [address]
-  )
+  // const { data: allToken, isLoading: allToken_loading_ } = useContractRead(
+  //   contract,
+  //   'tokensOfOwner',
+  //   [address]
+  // )
 
   useEffect(() => {
-    setAllTokens(allToken)
-    setIsLoading(false)
-    setClaimPrice('0')
+    contract?.erc721.getAll().then((results) => {
+      setAllTokens(
+        results.filter(
+          (token) =>
+            token.owner !== '0x0000000000000000000000000000000000000000'
+        )
+      )
+      setIsLoading(false)
+      setClaimPrice('0')
+      console.debug('A' + JSON.stringify(results))
+    })
   }, [contract])
 
   useEffect(() => {
@@ -97,9 +105,16 @@ const Component: React.FC<Props> = ({ children }: Props) => {
   }, [allTokens])
 
   useEffect(() => {
-    setAllTokens(allToken)
-    setIsLoading(false)
-    setClaimPrice('0')
+    contract?.erc721.getAll().then((results) => {
+      setAllTokens(
+        results.filter(
+          (token) =>
+            token.owner !== '0x0000000000000000000000000000000000000000'
+        )
+      )
+      setIsLoading(false)
+      setClaimPrice('0')
+    })
   }, [isClaiming])
 
   const store: Store = {
