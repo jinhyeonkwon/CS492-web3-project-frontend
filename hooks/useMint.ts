@@ -33,10 +33,10 @@ export const useMint = () => {
     store.setIsClaiming && store.setIsClaiming(true)
 
     try {
-      alert(contract)
+      // alert(contract)
       //@ts-ignore
       const data = await mintCall();
-      alert(data)
+      // alert(data)
       alert(`Successfully minted NFT!`)
     } catch (error) {
       console.error(error)

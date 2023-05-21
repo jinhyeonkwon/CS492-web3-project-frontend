@@ -4,17 +4,18 @@ import { NftContractContext } from '../../contexts/NftContractProvider'
 import { Fade } from '../elements/Fade'
 import { NftListItem } from '../elements/NftListItem'
 import { NoListItems } from '../elements/NoListItems'
+import { useContract, useContractRead } from '@thirdweb-dev/react'
 
 const Component: React.FC = () => {
   const [allTokens, setAllTokens] = useState<Array<any>>([])
   const store = useContext(NftContractContext)
-
+  const { contract } = useContract(process.env.NEXT_PUBLIC_CONTRACT_ADDRESS)
   useEffect(() => {
     setAllTokens(store.allTokens)
   }, [store])
   return (
     <Fade>
-    <Box maxW="8xl" mx="auto">
+      <Box maxW="8xl" mx="auto">
         <SimpleGrid
           columns={{
             base: 2,
@@ -27,9 +28,11 @@ const Component: React.FC = () => {
           py={6}
         >
           {allTokens.map((token, index) => {
+            // for render custom image
+            const tokenId = token.metadata.id
             return (
               <React.Fragment key={index}>
-                <NftListItem token={token} />
+                <NftListItem token_id={tokenId} token={token} />
               </React.Fragment>
             )
           })}

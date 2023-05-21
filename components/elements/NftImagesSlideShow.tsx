@@ -6,24 +6,22 @@ import { NftImage } from './NftImage'
 
 const Component: React.FC = () => {
   const [rand, setRand] = useState<number>(0)
+  const [rand2, setRand2] = useState<number>(0)
+
   const [imgUrl, setImgUrl] = useState<string>('')
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     setRand(Math.random())
-  //   }, 2000)
-  //   return () => clearInterval(interval)
-  // }, [])
 
   useEffect(() => {
     const interval = setInterval(() => {
       setRand(Math.random())
+      setRand2(Math.random())
     }, 1500)
     return () => clearInterval(interval)
   }, [])
 
   useEffect(() => {
-    const num = Math.floor(rand * 3) + 1
-    setImgUrl(`/assets/nft_image/${num}.png`)
+    const num = Math.floor(rand * 3)
+    const num2 = Math.floor(rand2 * 3)
+    setImgUrl(`/assets/nft_image/${num}_${num2}.png`)
   }, [rand])
 
   return imgUrl ? (
