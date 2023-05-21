@@ -3103,6 +3103,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@thirdweb-dev/chains@npm:^0.1.17":
+  version: 0.1.17
+  resolution: "@thirdweb-dev/chains@npm:0.1.17"
+  checksum: 9da7461a1e5ee0c304f42b0d0a024c7fc15b586b459087c4426576b5175702aa9902b08db3ceb084c0aaefc402e339422ea6ff8bd5d94a3a8bd47a41c23751f5
+  languageName: node
+  linkType: hard
+
 "@thirdweb-dev/contracts-js@npm:^1.2.2":
   version: 1.2.2
   resolution: "@thirdweb-dev/contracts-js@npm:1.2.2"
@@ -5119,6 +5126,7 @@ __metadata:
     "@chakra-ui/react": ^2.2.1
     "@emotion/react": ^11
     "@emotion/styled": ^11
+    "@thirdweb-dev/chains": ^0.1.17
     "@thirdweb-dev/react": ^3.6.8
     "@thirdweb-dev/sdk": ^3.6.8
     "@types/node": 18.0.0

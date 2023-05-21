@@ -7,6 +7,7 @@ import {
   useNetworkMismatch,
   useNFTDrop,
   useUnclaimedNFTSupply,
+  useContractRead,
 } from '@thirdweb-dev/react'
 import {
   createContext,
@@ -47,10 +48,7 @@ type Props = {
 }
 
 const Component: React.FC<Props> = ({ children }: Props) => {
-  const { data: nftDrop } = useContract(
-    process.env.NEXT_PUBLIC_CONTRACT_ADDRESS,
-    'nft-drop'
-  )
+  const { contract } = useContract(process.env.NEXT_PUBLIC_CONTRACT_ADDRESS)
 
   const address = useAddress()
   const [allTokens, setAllTokens] = useState<Array<any>>([])
@@ -62,19 +60,24 @@ const Component: React.FC<Props> = ({ children }: Props) => {
   const [totalSupply, setTotalSupply] = useState<number>(0)
   const [claimedSupply, setClaimedSupply] = useState<number>(0)
 
-  const { data: unclaimedNft } = useUnclaimedNFTSupply(nftDrop)
-  const { data: claimedNft } = useClaimedNFTSupply(nftDrop)
+  // const { data: unclaimedNft } = useUnclaimedNFTSupply(nftDrop)
+  // const { data: claimedNft } = useClaimedNFTSupply(nftDrop)
+
+  const { data: totalSupply_, isLoading: isLoading_ } = useContractRead(
+    contract,
+    'totalSupply'
+  )
+  const { data: allToken, isLoading: allToken_loading_ } = useContractRead(
+    contract,
+    'tokensOfOwner',
+    [address]
+  )
 
   useEffect(() => {
-    nftDrop?.getAll().then((results) => {
-      setAllTokens(results)
-      setIsLoading(false)
-    })
-
-    nftDrop?.claimConditions.getActive().then((activeClaimCondition) => {
-      setClaimPrice(ethers.utils.formatUnits(activeClaimCondition.price._hex))
-    })
-  }, [nftDrop])
+    setAllTokens(allToken)
+    setIsLoading(false)
+    setClaimPrice('0')
+  }, [contract])
 
   useEffect(() => {
     if (address) {
@@ -89,24 +92,14 @@ const Component: React.FC<Props> = ({ children }: Props) => {
       setOwnedTokens(owneds)
     }
 
-    setClaimedSupply(claimedNft?.toNumber() || 0)
-    setTotalSupply(
-      claimedNft && unclaimedNft
-        ? claimedNft.toNumber() + unclaimedNft.toNumber()
-        : 0
-    )
+    setClaimedSupply(totalSupply_ || 0)
+    setTotalSupply(totalSupply_ || 0)
   }, [allTokens])
 
   useEffect(() => {
-    // TODO transaction終了時のみにする
-    nftDrop?.getAll().then((results) => {
-      setAllTokens(results)
-      setIsLoading(false)
-    })
-
-    nftDrop?.claimConditions.getActive().then((activeClaimCondition) => {
-      setClaimPrice(ethers.utils.formatUnits(activeClaimCondition.price._hex))
-    })
+    setAllTokens(allToken)
+    setIsLoading(false)
+    setClaimPrice('0')
   }, [isClaiming])
 
   const store: Store = {

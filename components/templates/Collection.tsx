@@ -12,10 +12,9 @@ const Component: React.FC = () => {
   useEffect(() => {
     setAllTokens(store.allTokens)
   }, [store])
-
   return (
     <Fade>
-      <Box maxW="8xl" mx="auto">
+    <Box maxW="8xl" mx="auto">
         <SimpleGrid
           columns={{
             base: 2,

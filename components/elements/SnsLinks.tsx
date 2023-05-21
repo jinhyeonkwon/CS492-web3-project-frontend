@@ -38,8 +38,8 @@ const LinkIcon: React.FC<{
 
 const Component: React.FC = () => {
   return (
-    <Flex as="nav" gap={4}>
-      <LinkIcon
+    <Flex as="nav">
+      {/* <LinkIcon
         func={openseaUrl}
         icon={'/assets/logo/logo_black_opensea.svg'}
       />
@@ -58,7 +58,7 @@ const Component: React.FC = () => {
       <LinkIcon
         func={instagramUrl}
         icon={'/assets/logo/logo_black_instagram.svg'}
-      />
+      /> */}
     </Flex>
   )
 }

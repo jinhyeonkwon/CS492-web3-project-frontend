@@ -41,11 +41,11 @@ const Component: React.FC = () => {
                 <Text fontSize="xs">Connect Wallet</Text>
               </Button>
             )}
-            <Text pt={2} fontSize="xs" textAlign={'center'}>
+            {/* <Text pt={2} fontSize="xs" textAlign={'center'}>
               {store.claimedSupply} / {store.totalSupply}
-            </Text>
+            </Text> */}
             <Text pt={2} fontSize="xs" textAlign={'center'}>
-              goerli testnet
+              working on georil testnet
             </Text>
           </div>
         </VStack>
