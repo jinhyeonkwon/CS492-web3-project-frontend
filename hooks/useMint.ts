@@ -12,7 +12,10 @@ import { NftContractContext } from '../contexts/NftContractProvider'
 export const useMint = () => {
   const { contract } = useContract(process.env.NEXT_PUBLIC_CONTRACT_ADDRESS)
   const store = useContext(NftContractContext)
-  const { mutateAsync: mintCall, isLoading } = useContractWrite(contract, "mint")
+  const { mutateAsync: mintCall, isLoading } = useContractWrite(
+    contract,
+    'mint'
+  )
 
   const address = useAddress()
   const connectWithMetamask = useMetamask()
@@ -35,7 +38,7 @@ export const useMint = () => {
     try {
       // alert(contract)
       //@ts-ignore
-      const data = await mintCall();
+      const data = await mintCall()
       // alert(data)
       alert(`Successfully minted NFT!`)
     } catch (error) {
