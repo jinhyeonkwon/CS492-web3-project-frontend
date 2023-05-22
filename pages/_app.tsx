@@ -24,7 +24,7 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
 
   return (
     <ChakraProvider theme={theme}>
-      <ThirdwebProvider desiredChainId={activeChainId}>
+      <ThirdwebProvider activeChain={activeChainId}>
         <NftContractProvider>
           {getLayout(<Component {...pageProps} />)}
         </NftContractProvider>
